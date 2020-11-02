@@ -4,7 +4,7 @@ The goal of this coding task is to give us an idea of your coding and problem so
 
 Please give this your best effort and let us know if you have any questions along the way. You should allocate at least a couple of hours to the task. It will require you to install docker and to be familiar with the basics of Vue.js. You can use whatever tools or materials you need to assist you.
 
-Please follow the instructions below for submitting your files. 
+Please follow the instructions below for submitting your files.
 
 # Project Requirements
 
@@ -22,7 +22,7 @@ Your app functionality should include:
 *  Add a study to the list via the "Add Study" list
 *  Delete a study in the list via the "Remove Study" list
 
-We would also like to see some CSS styling and for you to follow the mockup as closely as possible. 
+We would also like to see some CSS styling and for you to follow the mockup as closely as possible.
 However, when it comes to the details, it is better to focus on spacing/alignment rather than getting extact colors/fonts.
 
 # Vue Docker Container Setup, Development & Running
@@ -36,26 +36,25 @@ Once you have cloned this repository, create the docker image by runing this com
 To create and run the docker container (**replacing ONLY the capitalized words in the command**):
 
 `docker run -v \INSERT/PATH/TO/THE/CLONED/DIRECTORY:/app -v /app/node_modules -p 8081:8080 --rm developer-sample-task `
+`docker run -v /home/brice/TakeHomeTasks/developer-sample-task:/app -v /app/node_modules -p 8081:8080 --rm developer-sample-task`
 
 Ignore npm warnings for dependencies
 
 Go to http://localhost:8081/ to verify the install worked properly.
 
-If the Vue page loads, you're ready to start! While developing, you will need to get the changes to show on the page, which they will not do while loaded from the Docker container. 
+If the Vue page loads, you're ready to start! While developing, you will need to get the changes to show on the page, which they will not do while loaded from the Docker container.
 
 Exit the docker container in the terminal and enter the following command:
 
 `npm run serve`
 
-Go to http://localhost:8080/
-
-While in development, localhost:8080 will hot reload and reflect the changes you made in the application code. 
+While in development, localhost:8080 will hot reload and reflect the changes you made in the application code.
 
 Be sure that everything still builds and runs with the `docker run` command above along the way.
 
 # API Route to get initial data
 
-ROUTE: 
+ROUTE:
 https://www.cxsurveys.com/devtest/getStudyData.php
 
 Will return json file with study data needed to initialize the interface.
