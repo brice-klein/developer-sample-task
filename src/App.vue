@@ -1,23 +1,38 @@
 <template>
-  <div id="app">
-  <ul id="studies">
+  <div v-if="this.studies"  id="app">
+  <span>is this rendering?</span>
+  <li v-for="study in studies" :key="study.id">
+      <div> {{ study.name}} </div>
+      <div> {{study.id}} </div>
+      <div> {{study.created}} </div>
+      <div> {{study.completes}} </div>
+  </li>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import Study from './components/Study.vue'
+//import Study from './components/Study.vue'
 
 export default {
   data () {
     return {
       studies: []
     }
-  }
+  },
   name: 'app',
   components: {
-    HelloWorld,
-    Study
+  },
+  mounted: function() {
+    fetch('https://www.cxsurveys.com/devtest/getStudyData.php')
+    .then(res => res.json())
+    .then(data => this.studies = data);
+    },
+  methods: {
+    // getStudies: function() {
+    //   fetch('https://www.cxsurveys.com/devtest/getStudyData.php')
+    //   .then(res => res.json())
+    //   .then(data => data);
+    // },
   }
 }
 </script>
