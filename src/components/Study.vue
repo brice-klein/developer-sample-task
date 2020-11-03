@@ -1,9 +1,9 @@
 <template>
   <div class="study">
-    <div class="name">{{name}}<div class="change-name-button"> </div> </div>
-    <div class="id">{{id}}</div>
-    <div class="created-date"> {{created}} </div>
-    <div class="completes" > {{completes}}<div class="add-complete-button"> </div> </div>
+    <div class="name">{{initialName}} </div>
+    <div class="id">{{initialId}}</div>
+    <div class="created-date"> {{initialCreated}} </div>
+    <div class="completes"> {{completes}}<button class="add-complete-button" v-on:click="completes += 1"> </button> </div>
     <div class="delete-study-button"> </div>
   </div>
 
@@ -12,14 +12,24 @@
 <script>
 export default {
   name: 'Study',
-  data () {
-    return {studies: []};
-  },
   props: {
-    name: String,
-    id: String,
-    created: String,
-    completes: String
+    initialName: String,
+    initialId: String,
+    initialCreated: String,
+    initialCompletes: String
+  },
+  data () {
+    return {
+      name: this.initialName,
+      id: this.initialId,
+      created: this.initialCreated,
+      completes: this.initialCompletes
+      };
+  },
+  methods: {
+    addComplete: function() {
+      this.completes = this.completes + 1;
+    }
   }
 }
 </script>

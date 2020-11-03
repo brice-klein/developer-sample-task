@@ -1,8 +1,7 @@
 <template>
   <div v-if="this.studies"  id="app">
-  <span>is this rendering? {{studies.studyData}}</span>
   <li v-for="study in studies.studyData" :key="study.id">
-      <Study :name="study.studyName" :id="study.id" :created="study.creationDate" :completes="study.numCompletes"></Study>
+      <Study :initialName="study.studyName" :initialId="study.id" :initialCreated="study.creationDate" :initialCompletes="study.numCompletes"></Study>
   </li>
   </div>
 </template>
@@ -26,6 +25,9 @@ export default {
     .then(data => this.studies = data);
     },
   methods: {
+    addComplete: function() {
+      this.completes += 1;
+    }
     // getStudies: function() {
     //   fetch('https://www.cxsurveys.com/devtest/getStudyData.php')
     //   .then(res => res.json())
