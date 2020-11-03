@@ -25,14 +25,6 @@ export default {
     .then(data => this.studies = data);
     },
   methods: {
-    addComplete: function() {
-      this.completes += 1;
-    }
-    // getStudies: function() {
-    //   fetch('https://www.cxsurveys.com/devtest/getStudyData.php')
-    //   .then(res => res.json())
-    //   .then(data => data);
-    // },
   }
 }
 </script>
