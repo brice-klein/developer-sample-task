@@ -18,6 +18,7 @@ export default {
     initialCreated: String,
     initialCompletes: String
   },
+  // props: ['initialName', 'initialId', 'initialCreated', 'initialCompletes'],
 // for completes? vvv This may remove the need to use bulky Number and String operations.
 // cast value as number??? <input v-model="age" number>
 
@@ -36,6 +37,11 @@ export default {
   //   normalizedCompletes: function() {
   //     return Number(this.initialCompletes);
   //   }
+  // },
+  // beforeCreate () {
+  //   var obj = {}
+  //   obj.extend(this.props);
+  //   this
   // },
 
   // Data is currently being refreshed everytime parent reloads causing the changes to not be persisted
@@ -64,8 +70,7 @@ export default {
       this.editMode = !this.editMode;
 
     }
-  },
-  beforeCreate () {
+  }
 }
 </script>
 
@@ -74,13 +79,25 @@ export default {
     display: inline-block;
   }
   .study {
-    display: inline-block;
+    display: flex;
+    background-color: #ffffff;
+    height: 25px;
+    border-radius: 7px;
+    margin-bottom: 7px;
+    padding: 7px;
+  }
+  .name {
+    width: 45%;
+    text-align: left;
+    padding-left: 15px;
   }
   .id {
     display: inline-block;
+    width: 10%
   }
   .created-date {
     display: inline-block;
+    padding-right: 10%;
   }
   .completes {
     display: inline-block;
