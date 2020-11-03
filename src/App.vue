@@ -1,28 +1,26 @@
 <template>
   <div v-if="this.studies"  id="app">
-  <span>is this rendering?</span>
-  <li v-for="study in studies" :key="study.id">
-      <div> {{ study.name}} </div>
-      <div> {{study.id}} </div>
-      <div> {{study.created}} </div>
-      <div> {{study.completes}} </div>
+  <span>is this rendering? {{studies.studyData}}</span>
+  <li v-for="study in studies.studyData" :key="study.id">
+      <Study :name="study.studyName" :id="study.id" :created="study.creationDate" :completes="study.numCompletes"></Study>
   </li>
   </div>
 </template>
 
 <script>
-//import Study from './components/Study.vue'
+import Study from './components/Study.vue'
 
 export default {
+  components: {
+    'Study': Study
+  },
+  name: 'app',
   data () {
     return {
       studies: []
     }
   },
-  name: 'app',
-  components: {
-  },
-  mounted: function() {
+  beforeCreate: function() {
     fetch('https://www.cxsurveys.com/devtest/getStudyData.php')
     .then(res => res.json())
     .then(data => this.studies = data);
