@@ -91,6 +91,7 @@ export default {
 .name {
   margin: auto;
   font-weight: bold;
+  font-size: 14px;
 }
 .input-field {
   width: 100%;

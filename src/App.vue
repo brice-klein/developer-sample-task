@@ -22,7 +22,9 @@
       </ul>
     </div>
     <br />
-    <button id="add-study" v-on:click="createElement">+Add Study</button>
+    <div class="button-container">
+      <button id="add-study" v-on:click="createElement">+Add Study</button>
+    </div>
   </div>
 </template>
 
@@ -87,13 +89,12 @@ export default {
   background-color: #3d78a3;
   width: 95%;
   height: 100%;
+  margin-top: 60px;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  align-content: center;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 #header {
   width: 85%;
@@ -105,28 +106,25 @@ export default {
   display: flex;
   width: 100%;
   padding-left: 25px;
+  font-size: 12px;
 }
 #study-name-header {
   width: 44%;
   color: white;
   text-align: left;
-  font-size: small;
 }
 #study-id-header {
   width: 10%;
   color: white;
-  font-size: small;
 }
 #study-created-header {
   width: 21%;
   color: white;
   text-align: center;
-  font-size: small;
 }
 #study-completes-header {
   width: 10%;
   color: white;
-  font-size: small;
 }
 .studies-container {
   width: 85%;
@@ -135,11 +133,14 @@ export default {
 .spacer {
   width: 15%;
 }
+.button-container {
+  width: 85%;
+  display: inline-block;
+}
 #add-study {
   background-color: #164462;
   height: 25px;
-  position: relative;
-  right: 42%;
+  float: left;
   margin-top: 20px;
   border: none;
   border-radius: 7px;
@@ -151,6 +152,7 @@ ul {
   justify-content: center;
   align-content: center;
   margin-left: none;
+  margin-top: 7px;
   padding-inline-start: 0;
 }
 </style>
