@@ -20,6 +20,7 @@
     <button class="fas" v-on:click="hideStudy">&#xf2ed;</button>
   </div>
 </template>
+
 <script>
 export default {
   name: "Study",
@@ -29,7 +30,7 @@ export default {
     initialCreated: String,
     initialCompletes: String,
   },
-  // Data is currently being refreshed everytime parent reloads causing the changes to not be persisted
+
   data: function () {
     return {
       name: this.initialName,
@@ -40,18 +41,7 @@ export default {
       hide: false,
     };
   },
-  // beforeDestroy: function () {
-  //   if (!this.data) {
-  //     this.data.id = this.initialId;
-  //     this.data.name = this.initialName;
-  //     this.data.created = this.initialCreated;
-  //     this.data.completes = this.initialCompletes;
-  //     this.editMode = false;
-  //     this.hide = false;
-  //   } else {
-  //     this.data = this.data;
-  //   }
-  // },
+
   methods: {
     setData: function () {},
     //this would be better as a computed value
@@ -61,9 +51,9 @@ export default {
     hideStudy: function () {
       this.hide = !this.hide;
     },
-    changeStudyName: function ($event) {
+    changeStudyName: function (event) {
+      event.preventDefault();
       this.editMode = !this.editMode;
-      this.data.name = $event.input;
     },
     getFormattedDate: function (date) {
       var year = date.getFullYear();
@@ -93,16 +83,6 @@ export default {
   margin-bottom: 7px;
   padding: 7px;
   padding-top: 13px;
-}
-.fa {
-  background-color: transparent;
-  border: none;
-  color: gray;
-  height: auto;
-  width: auto;
-}
-.fa:hover {
-  cursor: pointer;
 }
 .name {
   width: 43%;
@@ -150,6 +130,17 @@ export default {
   font-size: 16px;
 }
 .fas:hover {
+  cursor: pointer;
+}
+.fa-pencil-alt {
+  background-color: transparent;
+  border: none;
+  color: gray;
+  height: auto;
+  width: auto;
+  margin-left: 0;
+}
+.fa-pencil-alt:hover {
   cursor: pointer;
 }
 .hide {

@@ -33,12 +33,15 @@ export default {
   components: {
     Study: Study,
   },
+
   name: "app",
+
   data() {
     return {
       studies: null,
     };
   },
+
   beforeCreate: function () {
     fetch("https://www.cxsurveys.com/devtest/getStudyData.php")
       .then((res) => res.json())
@@ -46,6 +49,7 @@ export default {
         this.studies ? (this.studies = this.studies) : (this.studies = data)
       );
   },
+
   methods: {
     createElement: function () {
       var newStudy = new StudyClass({
@@ -59,6 +63,7 @@ export default {
       newStudy.$mount();
       this.$refs.studies.appendChild(newStudy.$el);
     },
+
     getFormattedDate: function (date) {
       var year = date.getFullYear();
 
