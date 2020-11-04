@@ -1,14 +1,12 @@
 <template>
   <div class="study" :id="this.id" v-if="!hide">
-    <div class="name" v-if="!editMode">
+    <div class="name name-column" v-if="!editMode">
       {{ name }}
       <button class="fas fa-pencil-alt" v-on:click="changeStudyName"></button>
     </div>
-    <td>
-      <form v-on:submit="changeStudyName">
-        <input type="text" v-model="name" v-if="editMode" class="input-field" />
-      </form>
-    </td>
+    <form class="name-column" v-on:submit="changeStudyName" v-if="editMode">
+      <input type="text" v-model="name" class="input-field" />
+    </form>
     <div class="id">{{ id }}</div>
     <div class="created-date">{{ created }}</div>
     <div class="completes">
@@ -76,56 +74,63 @@ export default {
 }
 .study {
   display: flex;
+  flex-direction: row;
   background-color: #ffffff;
   height: 25px;
   width: 100%;
   border-radius: 8px;
   margin-bottom: 7px;
-  padding: 7px;
-  padding-top: 13px;
+  padding-left: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.name-column {
+  width: 44%;
+  text-align: left;
 }
 .name {
-  width: 43%;
-  text-align: left;
-  padding-left: 15px;
+  margin: auto;
   font-weight: bold;
 }
 .input-field {
-  width: 422px;
-  margin-left: 10px;
+  width: 100%;
+  /* display: none; */
 }
 .id {
-  display: inline-block;
   width: 10%;
+  display: inline-block;
+  margin: auto;
   font-size: small;
 }
 .created-date {
+  width: 21%;
   display: inline-block;
-  padding-right: 7.5%;
-  padding-left: 5.5%;
+  margin: auto;
   font-size: small;
 }
 .completes {
+  width: 10%;
   display: inline-block;
+  margin: auto;
   font-size: small;
-  padding-right: 85px;
-  padding-left: 7px;
 }
 .add-complete-button {
-  height: 20px;
-  width: auto;
   background-color: #d4d4d4;
+  height: 20px;
+  width: 10%;
   /* margin-right: 90px; */
   border: none;
   border-radius: 5px;
   padding: 5px;
+  margin: auto;
   color: #396f92;
   box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.2);
 }
 .fas {
+  width: 5%;
   background-color: transparent;
   border: none;
-  margin-left: 20px;
+  margin: auto;
   color: gray;
   font-size: 16px;
 }
@@ -138,7 +143,6 @@ export default {
   color: gray;
   height: auto;
   width: auto;
-  margin-left: 0;
 }
 .fa-pencil-alt:hover {
   cursor: pointer;

@@ -1,10 +1,13 @@
 <template>
   <div v-if="this.studies" id="app">
     <div id="header">
-      <span id="study-name-header">Study Name</span>
-      <span id="study-id-header">Study ID</span>
-      <span id="study-created-header">Created</span>
-      <span id="study-completes-header">Completes</span>
+      <div class="labels">
+        <span id="study-name-header">Study Name</span>
+        <span id="study-id-header">Study ID</span>
+        <span id="study-created-header">Created</span>
+        <span id="study-completes-header">Completes</span>
+        <span class="spacer"></span>
+      </div>
     </div>
     <div class="studies-container">
       <ul ref="studies">
@@ -82,59 +85,62 @@ export default {
 <style>
 #app {
   background-color: #3d78a3;
-  width: 100%;
+  width: 95%;
   height: 100%;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  align-content: center;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }
 #header {
-  width: 100%;
+  width: 85%;
   margin-top: 10%;
   padding-top: 10px;
+  display: inline-block;
+}
+.labels {
   display: flex;
+  width: 100%;
+  padding-left: 25px;
 }
 #study-name-header {
-  width: 30%;
-  margin-left: 25px;
+  width: 44%;
   color: white;
   text-align: left;
-  margin-left: 90px;
   font-size: small;
 }
 #study-id-header {
   width: 10%;
-  margin-left: 3%;
   color: white;
   font-size: small;
 }
 #study-created-header {
-  width: 10%;
-  margin-left: 3.5%;
+  width: 21%;
   color: white;
-  text-align: left;
+  text-align: center;
   font-size: small;
 }
 #study-completes-header {
-  width: auto;
-  margin-left: 0;
+  width: 10%;
   color: white;
   font-size: small;
 }
 .studies-container {
-  width: 84%;
+  width: 85%;
   display: inline-block;
-  padding-right: 6.5%;
+}
+.spacer {
+  width: 15%;
 }
 #add-study {
+  background-color: #164462;
   height: 25px;
   position: relative;
   right: 42%;
   margin-top: 20px;
-  background-color: #164462;
   border: none;
   border-radius: 7px;
   color: white;
@@ -144,9 +150,7 @@ ul {
   list-style-type: none;
   justify-content: center;
   align-content: center;
-  margin-right: 40;
   margin-left: none;
-  padding-inline-start: 0px;
-  padding-inline-end: 60px;
+  padding-inline-start: 0;
 }
 </style>
